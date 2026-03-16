@@ -81,6 +81,7 @@ Depuis le shell obtenu, lecture du fichier `/etc/passwd` pour identifier les com
 ```bash
 cat /etc/passwd
 ```
+![payload generation](screenshots/recuperation_identifiants.png)
 
 L'utilisateur `msfadmin` a été repéré. Metasploitable 2 étant une machine volontairement vulnérable, le mot de passe par défaut `msfadmin:msfadmin` a été testé — et a fonctionné.
 
@@ -93,7 +94,8 @@ Utilisation des identifiants récupérés pour établir une session SSH plus sta
 ```bash
 ssh -oHostKeyAlgorithms=+ssh-rsa msfadmin@192.168.100.12
 ```
-
+![payload generation](screenshots/connexion_ssh.png)
+ 
 L'option `-oHostKeyAlgorithms=+ssh-rsa` est nécessaire car Metasploitable 2 tourne sur une ancienne version de SSH qui ne supporte pas les algorithmes plus récents par défaut.
 
 ---
@@ -105,6 +107,7 @@ L'option `-oHostKeyAlgorithms=+ssh-rsa` est nécessaire car Metasploitable 2 tou
 ```bash
 sudo su
 ```
+![payload generation](screenshots/shell_root.png)
 
 **Méthode 2 — binaire SUID, pour les cas où sudo n'est pas disponible :**
 
@@ -119,6 +122,7 @@ find / -perm -4000 -type f 2>/dev/null
 !sh
 whoami  # root
 ```
+![payload generation](screenshots/shell_root2.png)
 
 ---
 
