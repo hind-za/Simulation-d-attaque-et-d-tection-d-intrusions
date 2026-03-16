@@ -154,6 +154,7 @@ Vérification de l'accès root persistant via SSH :
 ```bash
 ssh -oHostKeyAlgorithms=+ssh-rsa root@192.168.100.12
 ```
+![payload generation](screenshots/root_maintien.png)
 
 ---
 
@@ -168,6 +169,7 @@ ssh -oHostKeyAlgorithms=+ssh-rsa root@192.168.100.12
 | Connexion SSH détectée (règle personnalisée) | 1000001 | Low |
 
 La détection SSH a nécessité l'écriture manuelle d'une règle dans `local.rules`, Suricata n'en incluant pas une par défaut.
+![payload generation](screenshots/ssh_rule.png)
 
 **Ce que Wazuh n'a pas détecté :** aucun agent n'était déployé sur Metasploitable 2, donc toutes les actions locales sont passées inaperçues — élévation de privilèges, création d'utilisateur, modification de `/etc/shadow`. Suricata ne voit que le trafic réseau, ce qui signifie que tout ce qui se passe localement sur l'hôte reste invisible. C'est une limite importante à garder en tête : la surveillance réseau seule ne suffit pas.
 
