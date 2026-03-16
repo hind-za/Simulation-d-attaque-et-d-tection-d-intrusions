@@ -27,7 +27,7 @@ Un ping pour confirmer que la cible est accessible, puis un scan Nmap pour ident
 ```bash
 nmap -sV 192.168.100.12
 ```
-
+![Nmap scan](screenshots/nmap_scan.png)
 Deux services ont retenu l'attention : Apache Tomcat sur le port 8180 et SSH sur le port 22.
 
 ---
