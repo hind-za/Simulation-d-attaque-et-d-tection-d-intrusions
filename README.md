@@ -28,6 +28,7 @@ Un ping pour confirmer que la cible est accessible, puis un scan Nmap pour ident
 nmap -sV 192.168.100.12
 ```
 ![Nmap scan](screenshots/nmap_scan.png)
+
 Deux services ont retenu l'attention : Apache Tomcat sur le port 8180 et SSH sur le port 22.
 
 ---
@@ -42,6 +43,7 @@ set RHOSTS 192.168.100.12
 set RPORT 8180
 run
 ```
+![Identifiant](screenshots/identifiant_par_defaut.png)
 
 Identifiants valides trouvés : `tomcat:tomcat`.
 
